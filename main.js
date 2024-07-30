@@ -29,11 +29,11 @@ const createChatElement = (content, className) => {
 }
 
 const getChatResponse = async (incomingChatDiv) => {
-    const API_URL = "https://api.nyxs.pw/ai/gpt4";
+    const API_URL = "https://nethwieapi.onrender.com/ai?model=@cf/meta/llama-3-8b-instruct&system=You%20are%20a%20friendly%20chatbot";
     const pElement = document.createElement("p");
 
     try {
-        const response = await fetch(`${API_URL}?text=${encodeURIComponent(userText)}`);
+        const response = await fetch(`${API_URL}&user=${encodeURIComponent(userText)}`);
         const data = await response.json();
         pElement.textContent = data.result.trim();
     } catch (error) {
